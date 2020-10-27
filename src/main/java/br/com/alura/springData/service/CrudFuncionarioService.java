@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
 
 import br.com.alura.springData.orm.Cargo;
 import br.com.alura.springData.orm.Funcionario;
@@ -156,7 +157,7 @@ public class CrudFuncionarioService {
 	
 	private void visualizar() {
 		Iterable<Funcionario> funcionarios = funcionarioRepository.findAll();
-		funcionarios.forEach(funcionario -> System.out.println(funcionario));
+		funcionarios.forEach(funcionario -> System.out.println(funcionarios));
 	}
 	
 	private void deletar(Scanner sc) {

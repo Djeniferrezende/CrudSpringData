@@ -20,8 +20,8 @@ public class Unidade {
 	private String Descricao;
 	private String endereço;
 	
-	@ManyToMany(mappedBy = "Unidade", fetch = FetchType.EAGER)
-	private List<Funcionario>funcionario;
+	@ManyToMany(mappedBy = "unidadeTrabalhos", fetch = FetchType.EAGER)
+	private List<Funcionario> funcionarios;
 
 	public Integer getId() {
 		return id;
@@ -48,17 +48,17 @@ public class Unidade {
 	}
 
 	public List<Funcionario> getFuncionario() {
-		return funcionario;
+		return funcionarios;
 	}
 
 	public void setFuncionario(List<Funcionario> funcionario) {
-		this.funcionario = funcionario;
+		this.funcionarios = funcionario;
 	}
 
 	@Override
 	public String toString() {
 		return "Unidade [id=" + id + ", Descricao=" + Descricao + ", endereço=" + endereço + ", funcionario="
-				+ funcionario + "]";
+				+ funcionarios + "]";
 	}
 	
 	

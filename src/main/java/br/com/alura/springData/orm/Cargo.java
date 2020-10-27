@@ -56,8 +56,14 @@ public class Cargo {
 
 	@Override
 	public String toString() {
-		return "Cargo [Id=" + Id + ", descricao=" + descricao + ", funcionario=" + funcionario + "]";
+		return "Cargo [Id=" + Id + ", descricao=" + descricao + "]";
 	}
+
+
+	
+
+
+	
 	
 	
 	

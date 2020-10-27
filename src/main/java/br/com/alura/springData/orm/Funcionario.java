@@ -69,8 +69,8 @@ public class Funcionario {
 	public String getDatadeontratacao() {
 		return datadecontratacao;
 	}
-	public void setDatadeontratacao(String datadeontratacao) {
-		this.datadecontratacao = datadeontratacao;
+	public void setDatadeontratacao(String datadecontratacao) {
+		this.datadecontratacao = datadecontratacao;
 	}
 	public Cargo getCargo() {
 		return cargo;
@@ -87,11 +87,11 @@ public class Funcionario {
 	public void setId(Integer id) {
 		Id = id;
 	}
+	
 	@Override
 	public String toString() {
-		return "Funcionario [Id=" + Id + ", nome=" + nome + ", cpf=" + cpf + ", salario=" + salario
-				+ ", datadeontratacao=" + datadecontratacao + ", cargo=" + cargo + ", unidadeTrabalhos="
-				+ unidadeTrabalhos + "]";
+		return "Funcionario: " + "id:" + Id + "| nome:'" + nome + "| cpf:" + cpf + "| salario:" + salario
+				+ "| dataContratacao:" + datadecontratacao + "| cargo:" + cargo.getDescricao();
 	}
 	
 	
