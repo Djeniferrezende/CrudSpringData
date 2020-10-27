@@ -46,9 +46,9 @@ public class CrudFuncionarioService {
 			case 1:
 				salvar(sc);
 				break;
-	/*		case 2:
+			case 2:
 				atualizar(sc);
-				break;*/
+				break;
 			case 3:
 				visualizar();
 				break;
@@ -92,6 +92,7 @@ public class CrudFuncionarioService {
 		Optional<Cargo>cargo = cargoRepository.findById(cargoId);
 		funcionario.setCargo(cargo.get());
 		funcionario.setUnidadeTrabalhos(unidades);
+		
 		funcionarioRepository.save(funcionario);
 		System.out.println("salvo!");
 
