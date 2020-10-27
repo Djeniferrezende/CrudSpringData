@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Pageable;
 
 import br.com.alura.springData.orm.Cargo;
 import br.com.alura.springData.orm.Funcionario;

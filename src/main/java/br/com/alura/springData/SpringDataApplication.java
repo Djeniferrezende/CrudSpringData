@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import br.com.alura.springData.service.CrudCargoService;
 import br.com.alura.springData.service.CrudFuncionarioService;
 import br.com.alura.springData.service.CrudUnidadeService;
+import br.com.alura.springData.service.RelatoriosService;
 
 @EnableJpaRepositories
 @SpringBootApplication
@@ -20,14 +21,17 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudCargoService cargoService;
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeService unidadeService;
+	private final RelatoriosService relatorios;
 	
 	
 
 	public SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService,
-			CrudUnidadeService unidadeService) {
+			CrudUnidadeService unidadeService, RelatoriosService relatorios) {
+		super();
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeService = unidadeService;
+		this.relatorios = relatorios;
 	}
 
 	public static void main(String[] args) {
@@ -62,6 +66,9 @@ public class SpringDataApplication implements CommandLineRunner {
 					break;
 				case 3:
 					unidadeService.inicial(sc);
+					break;
+				case 4:
+					relatorios.inicial(sc);
 					break;
 				
 				default:
