@@ -26,6 +26,7 @@ public class RelatoriosService {
 			System.out.println("qual ação de cargo deseja executar");
 			System.out.println("0- sair");
 			System.out.println("1- Busca funcionario nome");
+			System.out.println("2- Busca funcionario nome salario e data de contratacao");
 			
 			
 			int action = sc.nextInt();
@@ -34,6 +35,9 @@ public class RelatoriosService {
 			switch (action) {
 			case 1:
 				buscaFuncionarioNome(sc);
+				break;
+			case 2:
+				 buscaFuncionarioNomeSalarioDataContratacao(sc);
 				break;
 			
 			default:
@@ -48,6 +52,21 @@ public class RelatoriosService {
 		System.out.println("Qual nome deseja pesquisar");
 		String nome = sc.next();
 		List<Funcionario> list = funcionarioRepository.findByNome(nome);
+		list.forEach(System.out::println);
+	}
+	
+	private void buscaFuncionarioNomeSalarioDataContratacao(Scanner sc) {
+		System.out.println("Digite o nome do funcionario");
+		String nome = sc.next();
+		
+		System.out.println("Digite o salario");
+		Double salario = sc.nextDouble();
+		
+		System.out.println("Digite data de contratacao");
+		String datadeContratacao = sc.next();
+		
+		
+		List<Funcionario> list = funcionarioRepository.findByNomeSalarioDataContratacao(nome, salario, datadeContratacao);
 		list.forEach(System.out::println);
 	}
 

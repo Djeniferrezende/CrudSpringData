@@ -77,6 +77,8 @@ public class CrudFuncionarioService {
 		System.out.println("Digite a data de contratacao do funcionario");
 		String data = sc.nextLine();
 		
+		sc.next();
+		
 		System.out.println("Digite o cargoid");
 		Integer cargoId = sc.nextInt();
 		
