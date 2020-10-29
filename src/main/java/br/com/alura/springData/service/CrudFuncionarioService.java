@@ -1,5 +1,7 @@
 package br.com.alura.springData.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +20,7 @@ import br.com.alura.springData.respository.UnidadeRepository;
 public class CrudFuncionarioService {
 
 	private boolean system = true;
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	private final CargoRepository cargoRepository;
 	private final FuncionarioRepository funcionarioRepository;
@@ -75,9 +78,9 @@ public class CrudFuncionarioService {
 		Double salario = sc.nextDouble();
 		
 		System.out.println("Digite a data de contratacao do funcionario");
-		String data = sc.nextLine();
+		String datadecontratacao = sc.next();
 		
-		sc.next();
+	
 		
 		System.out.println("Digite o cargoid");
 		Integer cargoId = sc.nextInt();
@@ -89,7 +92,7 @@ public class CrudFuncionarioService {
 		funcionario.setNome(nome);
 		funcionario.setCpf(cpf);
 		funcionario.setSalario(salario);
-		funcionario.setDatadeontratacao(data);
+		funcionario.setDatadeontratacao(LocalDate.parse(datadecontratacao, formatter));
 		
 		Optional<Cargo>cargo = cargoRepository.findById(cargoId);
 		funcionario.setCargo(cargo.get());
@@ -135,7 +138,7 @@ public class CrudFuncionarioService {
 		Double salario = sc.nextDouble();
 		
 		System.out.println("Digite a data de contratação");
-		String data = sc.next();
+		String datadecontratacao = sc.next();
 		
 		System.out.println("digite o cargoId");
 		Integer cargoId = sc.nextInt();
@@ -146,7 +149,7 @@ public class CrudFuncionarioService {
 		funcionario.setNome(nome);
 		funcionario.setCpf(cpf);
 		funcionario.setSalario(salario);
-		funcionario.setDatadeontratacao(data);
+		funcionario.setDatadeontratacao(LocalDate.parse(datadecontratacao, formatter));
 		Optional<Cargo>cargo = cargoRepository.findById(cargoId);
 		funcionario.setCargo(cargo.get());
 		
@@ -155,7 +158,7 @@ public class CrudFuncionarioService {
 		System.out.println("Salvo");
 
 	}
-	
+	 
 	private void visualizar() {
 		Iterable<Funcionario> funcionarios = funcionarioRepository.findAll();
 		funcionarios.forEach(funcionario -> System.out.println(funcionarios));

@@ -1,7 +1,7 @@
 package br.com.alura.springData.orm;
 
 import java.util.List;
-
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,7 +30,7 @@ public class Funcionario {
 	private String nome;
 	private int cpf;
 	private Double salario;
-	private String datadecontratacao;
+	private LocalDate datadecontratacao;
 	
 	@ManyToOne
 	@JoinColumn(name = "cargo_id", nullable = false)
@@ -66,10 +66,10 @@ public class Funcionario {
 	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
-	public String getDatadeontratacao() {
+	public LocalDate getDatadeontratacao() {
 		return datadecontratacao;
 	}
-	public void setDatadeontratacao(String datadecontratacao) {
+	public void setDatadeontratacao(LocalDate datadecontratacao) {
 		this.datadecontratacao = datadecontratacao;
 	}
 	public Cargo getCargo() {
@@ -87,12 +87,16 @@ public class Funcionario {
 	public void setId(Integer id) {
 		Id = id;
 	}
-	
 	@Override
 	public String toString() {
-		return "Funcionario: " + "id:" + Id + "| nome:'" + nome + "| cpf:" + cpf + "| salario:" + salario
-				+ "| dataContratacao:" + datadecontratacao + "| cargo:" + cargo.getDescricao();
+		return "Funcionario [Id=" + Id + ", nome=" + nome + ", cpf=" + cpf + ", salario=" + salario
+				+ ", datadecontratacao=" + datadecontratacao + ", cargo=" + cargo + ", unidadeTrabalhos="
+				+ unidadeTrabalhos + "]";
 	}
+	
+	
+	
+	
 	
 	
 	

@@ -56,7 +56,7 @@ public class CrudUnidadeService {
 
 		Unidade unidade = new Unidade();
 		unidade.setDescricao(descricao);
-		unidade.setEndereço(endereço);
+		unidade.setEndereco(endereço);
 		unidadeRepository.save(unidade);
 		System.out.println("salvo!");
 	}
@@ -73,7 +73,7 @@ public class CrudUnidadeService {
 		Unidade unidade = new Unidade();
 		unidade.setId(id);
 		unidade.setDescricao(descricao);
-		unidade.setEndereço(endereço);
+		unidade.setEndereco(endereço);
 
 		unidadeRepository.save(unidade);
 		System.out.println("Atualizado");

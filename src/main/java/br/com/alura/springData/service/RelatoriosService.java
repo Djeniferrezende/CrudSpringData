@@ -1,5 +1,7 @@
 package br.com.alura.springData.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,12 +14,14 @@ import br.com.alura.springData.respository.FuncionarioRepository;
 public class RelatoriosService {
 	
 	private Boolean system = true;
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
-	private final FuncionarioRepository funcionarioRepository;	
+	private final FuncionarioRepository funcionarioRepository;		
 	
 	
-	
+
 	public RelatoriosService(FuncionarioRepository funcionarioRepository) {
+		super();
 		this.funcionarioRepository = funcionarioRepository;
 	}
 
@@ -64,9 +68,10 @@ public class RelatoriosService {
 		
 		System.out.println("Digite data de contratacao");
 		String datadeContratacao = sc.next();
+		LocalDate localDate = LocalDate.parse(datadeContratacao, formatter);
 		
 		
-		List<Funcionario> list = funcionarioRepository.findByNomeSalarioDataContratacao(nome, salario, datadeContratacao);
+		List<Funcionario> list = funcionarioRepository.findByNomeSalarioDataContratacao(nome, salario, localDate);
 		list.forEach(System.out::println);
 	}
 
