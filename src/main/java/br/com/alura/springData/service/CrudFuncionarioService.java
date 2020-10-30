@@ -167,7 +167,7 @@ public class CrudFuncionarioService {
 		System.out.println("Qual pagina voce deseja visualizar?");
 		Integer page =sc.nextInt();
 		
-		Pageable pageable = PageRequest.of(page, 5,Sort.unsorted());		
+		Pageable pageable = PageRequest.of(page, 5,Sort.by(Sort.Direction.ASC,"nome"));		
 		Page<Funcionario> funcionarios = funcionarioRepository.findAll(pageable);
 		
 		
@@ -176,7 +176,7 @@ public class CrudFuncionarioService {
 		System.out.println("Pagina atual " + funcionarios.getNumber());
 		System.out.println("Total elementos na consulta " + funcionarios.getTotalElements());
 		
-		funcionarios.forEach(funcionario -> System.out.println(funcionarios));
+		funcionarios.forEach(funcionario -> System.out.println(funcionario));
 	}
 	
 	private void deletar(Scanner sc) {
