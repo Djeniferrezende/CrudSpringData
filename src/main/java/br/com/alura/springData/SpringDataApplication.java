@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import br.com.alura.springData.service.CrudCargoService;
 import br.com.alura.springData.service.CrudFuncionarioService;
 import br.com.alura.springData.service.CrudUnidadeService;
+import br.com.alura.springData.service.RelatorioFuncionarioDinamico;
 import br.com.alura.springData.service.RelatoriosService;
 
 @EnableJpaRepositories
@@ -22,16 +23,17 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeService unidadeService;
 	private final RelatoriosService relatorios;
-	
+	private final RelatorioFuncionarioDinamico relatorioDinamico;
 	
 
 	public SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService,
-			CrudUnidadeService unidadeService, RelatoriosService relatorios) {
+			CrudUnidadeService unidadeService, RelatoriosService relatorios, RelatorioFuncionarioDinamico relatorioDinamico) {
 		super();
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeService = unidadeService;
 		this.relatorios = relatorios;
+		this.relatorioDinamico = relatorioDinamico;
 	}
 
 	public static void main(String[] args) {
@@ -70,7 +72,9 @@ public class SpringDataApplication implements CommandLineRunner {
 				case 4:
 					relatorios.inicial(sc);
 					break;
-				
+				case 5:
+					relatorioDinamico.inicial(sc);
+					break;
 				default:
 					System.out.println("Finalizando");
 					system = false;

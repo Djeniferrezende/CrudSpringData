@@ -30,7 +30,7 @@ public class Funcionario {
 	private String nome;
 	private int cpf;
 	private Double salario;
-	private LocalDate datadecontratacao;
+	private LocalDate dataContratacao;
 	
 	@ManyToOne
 	@JoinColumn(name = "cargo_id", nullable = false)
@@ -67,10 +67,10 @@ public class Funcionario {
 		this.salario = salario;
 	}
 	public LocalDate getDatadeontratacao() {
-		return datadecontratacao;
+		return dataContratacao;
 	}
 	public void setDatadeontratacao(LocalDate datadecontratacao) {
-		this.datadecontratacao = datadecontratacao;
+		this.dataContratacao = datadecontratacao;
 	}
 	public Cargo getCargo() {
 		return cargo;
@@ -90,7 +90,7 @@ public class Funcionario {
 	@Override
 	public String toString() {
 		return "Funcionario [Id=" + Id + ", nome=" + nome + ", cpf=" + cpf + ", salario=" + salario
-				+ ", datadecontratacao=" + datadecontratacao + ", cargo=" + cargo + "]";
+				+ ", datadecontratacao=" + dataContratacao + ", cargo=" + cargo + "]";
 	}
 	
 	
